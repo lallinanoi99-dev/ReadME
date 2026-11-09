@@ -11,8 +11,6 @@ export const CONFIG = {
   NETWORK: "mainnet",
 
   // Links
-  PROJECT_GITHUB: "https://github.com/",
-  PROJECT_X: "https://x.com/",
   BOTCHAIN_SITE: "https://botchain.ai",
   BOTCHAIN_DOCS: "https://botchain.ai",
 };

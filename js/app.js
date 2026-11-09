@@ -718,6 +718,7 @@ async function stamp() {
   const md = normalizeMd(S.md);
   const hash = await sha256Hex(md);
   const repo = S.facts.full.toLowerCase();
+  if (!window.ethereum) return openModal("no-wallet", {});
   openModal("pending-wallet", { hash });
   let c;
   try {
@@ -764,7 +765,8 @@ function openModal(state, d) {
     : "https://img.shields.io/badge/Documented%20on-BOT%20Chain-3FB950";
   const badgeMd = `[![Documented on BOT Chain](${badgeImg})](${proof})`;
   const body = {
-    "pending-wallet": `<h2 id="stamp-title">Confirm in your wallet</h2><p class="muted">Saving <span class="mono">${esc(S.facts.full)}</span> @ <span class="mono">${S.commit.slice(0, 7)}</span> and fingerprint <span class="mono">${d.hash.slice(0, 10)}…</span></p><div class="spinner"></div>`,
+    "pending-wallet": `<h2 id="stamp-title">Confirm in your wallet</h2><p class="muted">Saving <span class="mono">${esc(S.facts.full)}</span> @ <span class="mono">${S.commit.slice(0, 7)}</span> and fingerprint <span class="mono">${d.hash?.slice(0, 10)}…</span></p><div class="spinner"></div><div class="modal-actions"><button class="btn btn-ghost btn-sm" id="m-close">Cancel</button></div>`,
+    "no-wallet": `<h2 id="stamp-title">MetaMask needed to stamp</h2><p class="muted">Stamping is a BOT Chain transaction, so it needs a browser wallet. Everything else works without one. If you already have MetaMask, open this page in the browser where it's installed.</p><div class="modal-actions"><button class="btn btn-ghost btn-sm" id="m-close">Close</button><a class="btn btn-primary btn-sm" href="https://metamask.io/download/" target="_blank" rel="noopener">Get MetaMask ↗</a></div>`,
     "pending-tx": `<h2 id="stamp-title">Stamping…</h2><p class="muted">Waiting for BOT Chain to confirm.</p><div class="spinner"></div><a class="linkish" href="${explorerTx(d.tx)}" target="_blank" rel="noopener">View transaction ↗</a>`,
     done: `<div class="stamp-ok">Stamped ✓</div><h2 id="stamp-title">Documented on BOT Chain</h2>
       <p class="muted">Paste this exact README into your repo so the proof page shows <strong>✓ Matches</strong>.</p>
@@ -780,6 +782,6 @@ function openModal(state, d) {
   $("#m-retry", card) && ($("#m-retry", card).onclick = () => (close(), stamp()));
   $("#m-badge", card) && ($("#m-badge", card).onclick = () => copyText(badgeMd, "Badge copied"));
   $("#m-md", card) && ($("#m-md", card).onclick = () => copyText(normalizeMd(S.md), "README copied"));
-  m.onclick = (e) => e.target === m && (state === "done" || state === "failed") && close();
+  m.onclick = (e) => e.target === m && state !== "pending-tx" && close();
   card.querySelector("a[data-link]")?.addEventListener("click", close);
 }

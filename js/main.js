@@ -95,8 +95,6 @@ window.addEventListener("scroll", () => $("#nav").classList.toggle("scrolled", s
 // ---------- footer ----------
 function initFooter() {
   const addr = CONFIG.CONTRACT_ADDRESS;
-  $("#ft-gh").href = CONFIG.PROJECT_GITHUB;
-  $("#ft-x").href = CONFIG.PROJECT_X;
   $("#ft-bcdocs").href = CONFIG.BOTCHAIN_DOCS;
   if (hasContract()) {
     $("#ft-addr").textContent = shortAddr(addr);

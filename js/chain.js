@@ -51,7 +51,6 @@ export async function connect() {
   const eth = window.ethereum;
   if (!eth) {
     toast("MetaMask not found — everything works except stamping.", true);
-    window.open("https://metamask.io/download/", "_blank", "noopener");
     return null;
   }
   try {
