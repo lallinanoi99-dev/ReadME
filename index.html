@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ReadMeGen — Paste a repo, get a great README</title>
+  <meta name="description" content="ReadMeGen reads your project, writes a clean, accurate README from real repo facts, and stamps the version on BOT Chain." />
+  <meta name="theme-color" content="#08090A" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.6.1/github-markdown-light.css" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="stylesheet" href="/css/app.css" />
+  <script>
+    // GitHub Pages SPA fallback: 404.html stores the original path.
+    (function () {
+      try {
+        var p = sessionStorage.getItem("rmg:redirect");
+        if (p) { sessionStorage.removeItem("rmg:redirect"); history.replaceState(null, "", p); }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Navbar + announcement (sticky together, like the reference) -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/" data-link aria-label="ReadMeGen home">
+        <img src="/assets/logo.svg" alt="" width="22" height="22" />
+        <span>ReadMeGen</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <div class="mega">
+          <button class="nav-link mega-btn" aria-expanded="false" aria-controls="mega-product">Product <svg class="chev" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></button>
+          <div class="mega-panel" id="mega-product" role="menu">
+            <div class="mega-col">
+              <p class="mega-h">Product</p>
+              <a href="/app" data-link role="menuitem" class="mega-item">
+                <span class="mega-ico">✎</span>
+                <span><strong>Draft</strong><small>Paste a repo, get a README from real facts</small></span>
+              </a>
+              <a href="/app" data-link role="menuitem" class="mega-item">
+                <span class="mega-ico">⇅</span>
+                <span><strong>Edit</strong><small>Split editor, live preview, regenerate any section</small></span>
+              </a>
+              <a href="/app" data-link role="menuitem" class="mega-item">
+                <span class="mega-ico">✓</span>
+                <span><strong>Stamp</strong><small>Fingerprint the version on BOT Chain</small></span>
+              </a>
+            </div>
+            <a class="mega-feature" href="/app?style=hackathon" data-link role="menuitem">
+              <span class="mega-feature-art mono" aria-hidden="true"># hackathon<br/>## Live demo<br/>## Smart contract<br/>## Submission</span>
+              <strong>Hackathon style</strong>
+              <small>Matches the BOT Chain submission checklist</small>
+            </a>
+          </div>
+        </div>
+        <a class="nav-link" href="/#examples" data-link>Examples</a>
+        <a class="nav-link" href="/#capabilities" data-link>Docs</a>
+        <a class="nav-link" href="/app#history" data-link>My READMEs</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="nav-link wallet-btn" data-wallet>Connect wallet</button>
+        <a class="btn btn-primary btn-sm" href="/app" data-link>Write my README</a>
+        <button class="nav-burger" aria-label="Open menu" aria-expanded="false" id="burger"><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="announce">
+      <a href="/app?style=hackathon" data-link>
+        <span class="pill-new">New · Hackathon style</span>
+        <span class="announce-text">Matches the BOT Chain submission checklist.</span> <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="/app" data-link>Write a README</a>
+      <a href="/#examples" data-link>Examples</a>
+      <a href="/#capabilities" data-link>Docs</a>
+      <a href="/app#history" data-link>My READMEs</a>
+      <button class="btn btn-ghost" data-wallet>Connect wallet</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HOME ============ -->
+    <div id="view-home" class="view" hidden>
+
+      <!-- 1 · Hero -->
+      <section class="blk hero">
+        <h1 class="hero-title" id="hero-title"><span class="hl">Paste a repo.</span><br /><span class="hl">Get a README people</span> <span class="rot-wrap"><span class="rot" id="rot">actually read.</span></span></h1>
+        <p class="hero-sub">ReadMeGen reads your code, writes a clear README from real facts, and stamps the version on BOT Chain.</p>
+        <form class="repo-form" id="hero-form" autocomplete="off">
+          <span class="repo-prefix mono">github.com/</span>
+          <input name="repo" class="mono" placeholder="owner/repo" aria-label="GitHub repository" spellcheck="false" />
+          <button class="btn btn-primary btn-sm" type="submit">Write my README</button>
+        </form>
+        <div class="hero-ctas">
+          <a class="btn btn-gray btn-sm" href="/#examples" data-link>See examples</a>
+        </div>
+      </section>
+
+      <!-- 2 · Demo window -->
+      <section class="blk demo-blk" aria-labelledby="demo-h">
+        <h2 class="demo-h" id="demo-h">See ReadMeGen at work</h2>
+        <div class="demo-window" id="demo">
+          <aside class="dw-side">
+            <div class="dw-ws"><img src="/assets/logo.svg" alt="" width="16" height="16" /> <span>ReadMeGen</span><span class="dw-caret">⌄</span></div>
+            <div class="dw-seg"><span class="on">Write</span><span>Stamps</span></div>
+            <ul class="dw-nav">
+              <li>✎ New README</li><li>▤ Examples</li><li>◇ Badges</li><li>✓ Proof pages</li>
+            </ul>
+            <div class="dw-side-h">Recents</div>
+            <ul class="dw-recents" id="dw-recents">
+              <li class="on" data-i="0"><span class="dw-dot"></span>vote-dapp</li>
+              <li data-i="1"><span class="dw-dot"></span>token-tools</li>
+              <li data-i="2"><span class="dw-dot"></span>portfolio-site</li>
+            </ul>
+          </aside>
+          <div class="dw-main">
+            <div class="dw-top"><span id="dw-title">vote-dapp</span> <span class="muted">⌄</span><span class="dw-tabs"><span>Minimal</span><span>Detailed</span><span class="on">Hackathon</span></span></div>
+            <div class="dw-chat" id="dw-chat">
+              <div class="bubble user" id="dw-ask">Write a README for <span class="mono" id="dw-typed"></span></div>
+              <div class="dw-status" id="dw-status"><span class="shimmer" id="dw-status-text">Working</span> <span class="muted" id="dw-secs">1s</span></div>
+              <div class="dw-steps" id="dw-steps">
+                <div class="dw-step"><span class="ok">✓</span> Read file tree <span class="muted mono">7 files</span></div>
+                <div class="dw-step"><span class="ok">✓</span> Read package.json, VoteBox.sol, index.html</div>
+                <div class="dw-step chips"><span class="ok">✓</span> Detected <span class="chip chip-stack">HTML</span><span class="chip chip-stack">ethers.js</span><span class="chip chip-stack">Solidity</span><span class="chip chip-stack">GitHub Pages</span></div>
+              </div>
+              <div class="paper dw-paper" id="dw-paper">
+                <div class="stamp-drop" id="dw-stamp"><img src="/assets/botchain-mark.png" alt="" width="14" height="14" /> Stamped ✓</div>
+                <h3 class="p-h1" id="dw-h1"></h3>
+                <p class="p-tag" id="dw-tag"></p>
+                <div class="p-badges" id="dw-badges"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+                <div class="p-sec" id="dw-s1"><h4></h4><p></p></div>
+                <div class="p-sec" id="dw-s2"><h4></h4><p></p></div>
+                <div class="p-sec" id="dw-s3"><h4></h4><pre class="mono"></pre></div>
+              </div>
+            </div>
+            <div class="dw-input"><span>Paste a repo or ask for a change</span><span class="dw-input-acts"><i>＋</i><b>■</b></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 · Repo strip -->
+      <section class="blk strip" aria-labelledby="strip-h">
+        <div class="strip-head"><p id="strip-h">READMEs documented on BOT Chain</p><a class="strip-link" href="/app" data-link>Stamp yours →</a></div>
+        <div class="marquee" id="marquee"><div class="marquee-track" id="marquee-track"></div></div>
+      </section>
+
+      <!-- statement -->
+      <section class="blk statement">
+        <p class="statement-text" id="statement">Most repos ship with a README that says nothing. Reviewers, judges and users read it first.</p>
+      </section>
+
+      <!-- 4 · Tabbed capabilities -->
+      <section class="blk caps" id="capabilities" aria-labelledby="caps-h">
+        <div class="blk-head">
+          <h2 id="caps-h">ReadMeGen <span class="h-ico">#</span> does the docs<br />while you ship</h2>
+          <p class="blk-sub">It reads the repo, writes the draft, and waits for your review.</p>
+        </div>
+        <div class="cells cells-2">
+          <div class="cell">
+            <div class="pills" role="tablist" id="caps-tabs"></div>
+            <h3 class="cell-title" id="caps-title"></h3>
+            <p class="cell-text" id="caps-text"></p>
+            <a class="btn btn-gray btn-sm" href="/app" data-link>Try it</a>
+          </div>
+          <div class="cell cell-visual">
+            <div class="caps-grid" id="caps-grid" role="tabpanel"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 · Built from your code -->
+      <section class="blk facts" aria-labelledby="facts-h">
+        <div class="blk-head">
+          <h2 id="facts-h">Built from your code,<br />not guesses</h2>
+          <p class="blk-sub">Facts first, then words. Missing info becomes a TODO, never a made-up claim.</p>
+        </div>
+        <div class="cells cells-2">
+          <div class="cell">
+            <div class="visual"><div class="cloud" id="cloud" aria-hidden="true"></div></div>
+            <h3 class="cell-title">Reads your files</h3>
+            <p class="cell-text">File tree, package.json scripts, Solidity sources, index.html meta, your old README and .env.example names.</p>
+            <a class="btn btn-gray btn-sm" href="/app" data-link>Read a repo</a>
+          </div>
+          <div class="cell">
+            <div class="visual">
+              <div class="contract-mock">
+                <div class="cm-row cm-head"><span>VoteBox</span><span class="chip chip-stack">chain 677</span></div>
+                <div class="cm-row mono"><span>createPoll(string q)</span><span class="muted">write</span></div>
+                <div class="cm-row mono"><span>vote(uint256 id, uint8 choice)</span><span class="muted">write</span></div>
+                <div class="cm-row mono"><span>results(uint256 id)</span><span class="muted">view</span></div>
+                <div class="cm-row cm-link mono">scan.botchain.ai/address/0x12ab…9f3c ↗</div>
+              </div>
+            </div>
+            <h3 class="cell-title">Knows smart contracts</h3>
+            <p class="cell-text">Contract names, public functions, network, address and the explorer link — the way reviewers look for them.</p>
+            <a class="btn btn-gray btn-sm" href="/app?style=hackathon" data-link>Hackathon style</a>
+          </div>
+          <div class="cell cell-wide">
+            <div class="visual todo-visual" aria-hidden="true">
+              <div class="todo-card t1"><span class="todo-tag">TODO</span> add the live URL</div>
+              <div class="todo-card t2"><span class="todo-tag">TODO</span> add a screenshot or GIF</div>
+              <div class="todo-card t3"><span class="todo-tag">TODO</span> describe the main flow in 3 steps</div>
+              <div class="todo-card t4 strike">"Used by 10,000 developers" <span class="todo-no">never written</span></div>
+            </div>
+            <div class="wide-text">
+              <h3 class="cell-title">Never invents features</h3>
+              <p class="cell-text">No made-up commands, numbers, users or awards. If a fact is missing you get a <code>TODO:</code> to fill in.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 · Feature row -->
+      <section class="blk features" aria-labelledby="feat-h">
+        <div class="blk-head row">
+          <div>
+            <h2 id="feat-h">Everything a good<br />README needs</h2>
+            <p class="blk-sub">Five tools that turn a draft into something people read.</p>
+          </div>
+          <div class="carousel-ctrl"><button class="icon-btn" id="ft-prev" aria-label="Previous">‹</button><button class="icon-btn" id="ft-next" aria-label="Next">›</button></div>
+        </div>
+        <div class="row-viewport" id="ft-viewport" tabindex="0" aria-roledescription="carousel">
+          <div class="row-track" id="ft-track">
+            <article class="fcard">
+              <div class="visual">
+                <div class="shot shot-styles">
+                  <div class="mini-tabs" id="flip-tabs">
+                    <button data-s="minimal">Minimal</button><button data-s="detailed" class="on">Detailed</button><button data-s="hackathon">Hackathon</button>
+                  </div>
+                  <div class="mini-readme" id="flip-readme"></div>
+                </div>
+              </div>
+              <h3 class="cell-title">3 styles</h3><p class="cell-text">Minimal, Detailed or Hackathon. Same facts, different depth.</p>
+              <a class="btn btn-gray btn-sm" href="/app" data-link>Pick a style</a>
+            </article>
+            <article class="fcard">
+              <div class="visual">
+                <div class="shot">
+                  <div class="mini-sec"><b>## Features</b><span class="mini-acts"><i>↻</i><i>Shorter</i><i>✕</i></span></div>
+                  <div class="mini-line w80"></div><div class="mini-line w60"></div><div class="mini-line w70"></div>
+                  <div class="mini-sec second"><b>## Getting started</b><span class="mini-acts"><i>⋮⋮</i></span></div>
+                  <div class="mini-line w60"></div>
+                </div>
+              </div>
+              <h3 class="cell-title">Section regenerate</h3><p class="cell-text">Redo, shorten, delete or drag any section without touching the rest.</p>
+              <a class="btn btn-gray btn-sm" href="/app" data-link>Open the editor</a>
+            </article>
+            <article class="fcard">
+              <div class="visual">
+                <div class="gauge" aria-hidden="true">
+                  <svg viewBox="0 0 120 70"><path d="M10 64 A50 50 0 0 1 110 64" stroke="#22262B" stroke-width="9" fill="none" stroke-linecap="round"/><path class="gauge-arc" d="M10 64 A50 50 0 0 1 110 64" stroke="#3FB950" stroke-width="9" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="22"/></svg>
+                  <b>7<small>/9</small></b><span>README score</span>
+                </div>
+              </div>
+              <h3 class="cell-title">README score</h3><p class="cell-text">A simple checklist shows what reviewers will miss.</p>
+              <a class="btn btn-gray btn-sm" href="/app" data-link>Score my README</a>
+            </article>
+            <article class="fcard">
+              <div class="visual">
+                <div class="shot-badges">
+                  <span class="sb"><i>license</i><b>MIT</b></span>
+                  <span class="sb"><i>demo</i><b class="g">live</b></span>
+                  <span class="sb"><i>BOT Chain</i><b class="dk">mainnet 677</b></span>
+                  <span class="sb"><i>built with</i><b class="bl">ethers.js</b></span>
+                  <span class="sb"><i># Documented on BOT Chain</i><b class="g">2026-11-09</b></span>
+                </div>
+              </div>
+              <h3 class="cell-title">Badge picker</h3><p class="cell-text">shields.io badges for license, language, demo and BOT Chain.</p>
+              <a class="btn btn-gray btn-sm" href="/app" data-link>Add badges</a>
+            </article>
+            <article class="fcard">
+              <div class="visual">
+                <div class="mini-proof"><span class="ok-big">✓ Matches</span><span class="mono">stamped by 0xAB…19 · commit 89365b8</span></div>
+              </div>
+              <h3 class="cell-title">Proof page</h3><p class="cell-text">Shows who stamped it and whether today's README still matches.</p>
+              <a class="btn btn-gray btn-sm" href="/app" data-link>Stamp a README</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · Before / after -->
+      <section class="blk ba" aria-labelledby="ba-h">
+        <div class="blk-head row">
+          <div>
+            <h2 id="ba-h">Before and after</h2>
+            <p class="blk-sub">The old README next to the ReadMeGen draft — with honest numbers.</p>
+          </div>
+          <div class="carousel-ctrl"><span class="mono muted" id="ba-count">1 / 3</span><button class="icon-btn" id="ba-prev" aria-label="Previous">‹</button><button class="icon-btn" id="ba-next" aria-label="Next">›</button></div>
+        </div>
+        <div class="ba-viewport" id="ba-viewport" tabindex="0" aria-roledescription="carousel">
+          <div class="ba-track" id="ba-track"></div>
+        </div>
+      </section>
+
+      <!-- 8 · Example gallery -->
+      <section class="blk gallery" id="examples" aria-labelledby="ex-h">
+        <div class="blk-head">
+          <h2 id="ex-h">Try it on a real repo</h2>
+          <p class="blk-sub">Pick a public project and watch ReadMeGen read it.</p>
+          <div class="pills" role="tablist" id="ex-tabs"></div>
+        </div>
+        <div class="ex-grid" id="ex-grid"></div>
+      </section>
+
+      <!-- 9 · Closing CTA -->
+      <section class="blk cta">
+        <h2>The README your project deserves.</h2>
+        <p class="blk-sub">Paste a repo. Review the draft. Stamp it on BOT Chain.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-sm" href="/app" data-link>Write my README</a>
+          <a class="btn btn-gray btn-sm" href="/#examples" data-link>See examples</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ APP ============ -->
+    <div id="view-app" class="view" hidden></div>
+
+    <!-- ============ PROOF ============ -->
+    <div id="view-proof" class="view" hidden></div>
+
+    <!-- ============ 404 ============ -->
+    <div id="view-404" class="view" hidden>
+      <section class="wrap notfound">
+        <p class="mono muted">404</p>
+        <h1>Nothing to read here.</h1>
+        <a class="btn btn-primary" href="/" data-link>Go home</a>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER: ReadMeGen's own README, rendered GitHub-style ============ -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="paper footer-readme markdown-body">
+        <div class="fr-file mono"><span>README.md</span><span class="fr-file-acts">✎ ⋯</span></div>
+        <h1 class="fr-h1"><img src="/assets/logo.svg" alt="" width="28" height="28" /> ReadMeGen</h1>
+        <p class="fr-badges">
+          <a class="bc-badge" href="https://botchain.ai" target="_blank" rel="noopener" aria-label="Built on BOT Chain — opens botchain.ai">
+            <span class="bc-left">Built on</span><span class="bc-right"><img src="/assets/botchain-wordmark.png" alt="BOT Chain" height="13" /></span>
+          </a>
+          <span class="sh"><i>chain</i><b class="dk">677</b></span>
+          <span class="sh"><i>Documented</i><b class="g">✓</b></span>
+        </p>
+        <p>Paste a repo, get a great README — then stamp the version on BOT Chain.</p>
+        <h2>Contract</h2>
+        <p class="fr-contract">
+          <code id="ft-addr">not deployed yet</code>
+          <button class="copy-btn" id="ft-copy" aria-label="Copy contract address">Copy</button>
+          <a class="btn btn-primary btn-sm" id="ft-explorer" href="https://scan.botchain.ai" target="_blank" rel="noopener">View on explorer ↗</a>
+        </p>
+        <p class="fr-live"><span class="pulse g"></span> READMEs stamped: <strong id="ft-total">—</strong></p>
+      </div>
+      <div class="footer-cols">
+        <div><h4>Product</h4><a href="/app" data-link>Write a README</a><a href="/#examples" data-link>Examples</a><a href="/app#history" data-link>My READMEs</a></div>
+        <div><h4>Resources</h4><a href="/#capabilities" data-link>Docs</a><a href="/#facts-h" data-link>Writing guide</a><a id="ft-bcdocs" href="https://botchain.ai" target="_blank" rel="noopener">BOT Chain docs</a></div>
+        <div><h4>Project</h4><a id="ft-gh" href="https://github.com/" target="_blank" rel="noopener">GitHub</a><a id="ft-x" href="https://x.com/" target="_blank" rel="noopener">X</a></div>
+        <div><h4>Legal</h4><a href="/privacy" data-link>Privacy</a><a href="/terms" data-link>Terms</a></div>
+        <a class="footer-bc" href="https://botchain.ai" target="_blank" rel="noopener" aria-label="BOT Chain — opens botchain.ai">
+          <span class="muted">Built on</span>
+          <img src="/assets/botchain-wordmark.png" alt="BOT Chain" height="20" />
+        </a>
+        <p class="footer-status" id="ft-status"><span class="pulse g"></span> <span id="ft-status-text">BOT Chain mainnet</span></p>
+      </div>
+    </div>
+    <div class="footer-bottom mono"><span>MIT · © 2026 ReadMeGen · drafts are AI-assisted — always review</span><span class="muted">chain ID 677</span></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+[
+  {
+    "inputs": [],
+    "name": "BadStyle",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "EmptyRepo",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NoStamps",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "RepoTooLong",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "repo",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "by",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "readmeHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "Stamped",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "name": "getStamp",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "by",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "repo",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes20",
+            "name": "commit",
+            "type": "bytes20"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "readmeHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint8",
+            "name": "style",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint64",
+            "name": "at",
+            "type": "uint64"
+          }
+        ],
+        "internalType": "struct ReadMeGenStamps.Stamp",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "repo",
+        "type": "string"
+      }
+    ],
+    "name": "historyForRepo",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "repo",
+        "type": "string"
+      }
+    ],
+    "name": "latestForRepo",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "by",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "repo",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes20",
+            "name": "commit",
+            "type": "bytes20"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "readmeHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint8",
+            "name": "style",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint64",
+            "name": "at",
+            "type": "uint64"
+          }
+        ],
+        "internalType": "struct ReadMeGenStamps.Stamp",
+        "name": "s",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "repo",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes20",
+        "name": "commit",
+        "type": "bytes20"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "readmeHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "style",
+        "type": "uint8"
+      }
+    ],
+    "name": "stamp",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "stamps",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "by",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "repo",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes20",
+        "name": "commit",
+        "type": "bytes20"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "readmeHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "style",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint64",
+        "name": "at",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "who",
+        "type": "address"
+      }
+    ],
+    "name": "stampsOf",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "total",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

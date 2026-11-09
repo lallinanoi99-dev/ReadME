@@ -1,0 +1,19 @@
+name = "readmegen-worker"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Comma-separated list of sites allowed to call the AI routes.
+ALLOWED_ORIGINS = "http://localhost:5173,https://readmegen.example.com"
+RPC_URL = "https://rpc.botchain.ai"
+# Paste the mainnet contract address after deploying with Remix.
+CONTRACT_ADDRESS = "0x5b6F5Eec95C4c9B2B6bB30Eb8ba4A52D2C4be6Af"
+RATE_LIMIT = "20"
+
+# Optional: durable rate limiting across isolates.
+# [[kv_namespaces]]
+# binding = "RATE_KV"
+# id = "<your KV namespace id>"
+
+# Secret (never commit): wrangler secret put ANTHROPIC_API_KEY
